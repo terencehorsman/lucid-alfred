@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+	<html>
+		<head>
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+            <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+            <link rel="icon" type="image/png" href="{{ url_for('static', filename='images/favicon.ico')}}">
+			<title>{% block title %}{% endblock %}</title>
+		</head>
+	<body>
+        <section class="hero is-dark">
+        <div class="hero-body ">
+                <div class="container">
+                    <div class="columns">
+                        <div class="column is-half">
+                            <h1 class="title"><b>LucidChart Alfred Workflow</b></h1>
+                            <h2 class="subtitle">Set up your API in no time!</h2>
+                        </div>
+                        <div class="column is-one-quarter">
+                          </div>
+                        <div class="column is-one-quarter is-vcentered">
+                            <img src="{{ url_for('static', filename='images/logo.jpeg') }}" style="height: 75px;" >
+                            <img src="{{ url_for('static', filename='images/logo.png') }}" style="height: 75px;" >
+                        </div>  
+                    </div>
+                </div>
+        </div>
+        </section>
+        {% block body %} {% endblock %}
+	</body>
+	</html>

@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block title %}LucidChart API{% endblock %}
+{% block body %}
+<section class="section">
+    <div class="container">
+        <div class="column">
+            <div class="box">
+                <h1 class="title">
+                    3. Complete the Set Up
+                </h1>
+                <p>
+                    Your data has now synced to alfred 🥳. Please remember to refresh the db periodically as the LucidChart OAuth 1.0 API does not allow for periodic refreshes. <br/> Press the button below to complete set up.
+                </p>
+                <br/>
+                <form method="POST" action="#">
+                    <p class="buttons">
+                        <button class="button is-success" type="submit">
+                            <span class="icon">
+                            <i class="fas fa-check-square"></i>
+                            </span>
+                            <span>Complete Set Up</span>
+                        </button>
+                    </p>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

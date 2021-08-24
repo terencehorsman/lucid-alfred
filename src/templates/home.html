@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+{% block title %}LucidChart API{% endblock %}
+{% block body %}
+<section class="section">
+    <div class="container">
+        <div class="column">
+            <div class="box">
+                <h1 class="title">
+                    1. Set up a LucidChart API Key
+                </h1>
+                <p>
+                    Request a Oauth 1.0 API key from LucidChart. The document API <b>ONLY</b> works with 1.0
+                </p>
+                <br/>
+                <a href="https://app.lucidchart.com/teams?adminSection=apps%2FapiKeys%23custom-oauth1" target="_blank">
+                    <p class="buttons">
+                        <button class="button">
+                          <span class="icon">
+                            <i class="fas fa-external-link-square-alt"></i>
+                          </span>
+                          <span>Request API key</span>
+                        </button>
+                </a>
+            </div>
+            <div class="box">
+                <h1 class="title">
+                    2. Supply API Details
+                </h1>
+                <p>
+                    Establish a secure connection with your account through the API key.
+                </p>
+                <br/>
+                <form id="form1" action="#" method="POST">
+                <div class="field">
+                    <label class="label">Client ID</label>
+                    <div class="control">
+                        <input type="key" name="key" class="input" type="text" placeholder="Text input" required>
+                    </div>
+                </div>
+                <div class="field">
+                    <label class="label">Client Secret</label>
+                    <div class="control">
+                        <input type="secret" name="secret" class="input" type="text" placeholder="Text input" required>
+                    </div>
+                </div>
+                
+                <div class="field">
+                    <p class="buttons">
+                        <button class="button is-info" type="submit" form="form1">
+                          <span class="icon">
+                            <i class="fas fa-lock"></i>
+                          </span>
+                          <span>Submit and Verify</span>
+                        </button>
+                    </p>
+                </div>
+            </form>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
