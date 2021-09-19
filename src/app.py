@@ -3,12 +3,13 @@ from requests_oauthlib import OAuth1Session
 import xml.etree.ElementTree as ET
 import json
 
+# global class to maintain LucidChart OAuth information.
 class Lucid:
     def __init__(self) -> None:
         pass
     
     def authenticate(self, key, secret):
-            # OAuth endpoints given in the lucidchart API documentation
+            # 1. OAuth endpoints given in the lucidchart API documentation
             self.request_token_url = 'https://www.lucidchart.com/oauth/requestToken'
             self.authorization_base_url = 'https://www.lucidchart.com/oauth/authorize'
             self.access_token_url = 'https://www.lucidchart.com/oauth/accessToken'
@@ -64,16 +65,18 @@ class Lucid:
             file.close
 
 
-
+# flask application initialisation
 app = Flask(__name__)
 app.lucid_session = Lucid()
 
+# method for when done with programme
 def shutdown_server():
     func = request.environ.get('werkzeug.server.shutdown')
     if func is None:
         raise RuntimeError('Not running with the Werkzeug Server')
     func()
 
+#routing for home page
 @app.route("/", methods=['GET', 'POST'])
 def home():
     if request.method == "POST":
@@ -84,6 +87,7 @@ def home():
     else:    
         return render_template("home.html")
 
+# callback from OAuth API integration
 @app.route("/cb", methods=['GET', 'POST'])
 def callback():
     if request.method == 'GET':
@@ -94,8 +98,9 @@ def callback():
         app.lucid_session.update_json()
         return render_template("complete.html")
     else:
+        # kill the app once done.
         shutdown_server()
         return 'Set up Complete. This tab can now be closed.'
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run()
